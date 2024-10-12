@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE hibernate-configuration SYSTEM
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+<!--        telling to use jbdc driver class-->
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/db_name?autoReconnect=true&amp;useSSL=false</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password">Jkousql123@</property>
+<!--        dialect means language as we know, here we are telling which database software we are using like mysql or oracle so -->
+<!--        hibernate will convert query according to that.-->
+        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+<!--        here we are saying to hibernate that it will create table if not present in db, we can also write create in place of update-->
+<!--        then hibernate will delete and create table everytime-->
+        <property name="hbm2ddl.auto">create</property>
+        <property name="show_sql">true</property>
+        <mapping class="org.ManyToManyExample.Emp"/>
+        <mapping class="org.ManyToManyExample.Project"/>
+    </session-factory>
+</hibernate-configuration>
